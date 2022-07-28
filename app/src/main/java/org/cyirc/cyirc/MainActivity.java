@@ -9,14 +9,17 @@ import android.webkit.WebView;
 import android.webkit.WebChromeClient;
 
 public class MainActivity extends AppCompatActivity {
-    private WebView mywebView;
+    private final WebView mywebView;
+
+    public MainActivity(WebView mywebView) {
+        this.mywebView = mywebView;
+    }
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mywebView = findViewById(R.id.webview);
         WebSettings webSettings= mywebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         if (savedInstanceState == null) {
